@@ -26,6 +26,8 @@ namespace WindowsFormsApp
             {
                 btn = new Button();
                 btn.DialogResult = DialogResult.OK;
+                
+                btn.Name = string.Format("btn_{0}", (i + 1));
 
                 btn.Text = string.Format("확인 : {0}", (i + 1));
                 btn.Size = new Size(100, 50);
@@ -33,16 +35,26 @@ namespace WindowsFormsApp
 
                 btn.Cursor = Cursors.Hand; // 버튼 커서에 마우스를 가져다대면 손가락 모양이 나타난다.
 
-                Controls.Add(btn);
+                Controls.Add(btn); // Add에서 여러개 넣은것이므로 Controls은 배열이다. s가붙은것은 컨트롤이 여러개 들어있다는 의미.
                 btn.Click += btn_click;
             }
         }
 
         private void btn_click(object o, EventArgs a)
         {
+            // string names = "";
+            foreach(Control ct in Controls)
+            {
+                // names += ct.Name + " ";
+
+                if(ct.Name != "btn_3") ct.BackColor = Color.Silver;
+            }
+            // MessageBox.Show(names);
+
+
             btn = (Button) o; // 버튼은 오브젝트라고 형변환해줘야함
             btn.BackColor = (btn.BackColor == Color.Green) ? btn.BackColor = Color.Silver : btn.BackColor = Color.Green;
-
+            /*
             if(btn.BackColor == Color.Green)
             {
                 btn.BackColor = Color.Silver; // 기본 색상
@@ -50,8 +62,8 @@ namespace WindowsFormsApp
             else
             {
                 btn.BackColor = Color.Green; // 버튼 색깔을 Green으로 지정
-            } 
+            }
+            */
         }
     }
 }
-
