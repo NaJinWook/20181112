@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             Load += Form1_Load;
+            ClientSize = new Size(610, 300);
         }
 
         private void Form1_Load(object sender, EventArgs e)

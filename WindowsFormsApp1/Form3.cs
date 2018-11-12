@@ -16,6 +16,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             Panel();
+
+            ClientSize = new Size(610, 300);
         }
 
         private void Form3_Load(object sender, EventArgs e)
