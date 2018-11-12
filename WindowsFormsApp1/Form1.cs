@@ -16,7 +16,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             Load += Form1_Load;
-            ClientSize = new Size(610, 300);
+            ClientSize = new Size(1200, 700);
+            BackColor = Color.SteelBlue;
+            Panel();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,11 +38,15 @@ namespace WindowsFormsApp1
             Info_Btn.Text = "사용회원 검색";
             Info_Btn.Size = new Size(150, 50);
             Info_Btn.Location = new Point(210, 30);
-            Info_Btn.BackColor = Color.Black;
+            Info_Btn.BackColor = Color.DarkBlue;
             Info_Btn.ForeColor = Color.White;
             Info_Btn.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
             Controls.Add(Info_Btn);
             Info_Btn.Click += Info_Btn_click;
+        }
+        public void Panel()
+        {
+
         }
         private void Charge_Btn_click(object o, EventArgs a)
         {

@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             ClientSize = new Size(250, 120);
+            BackColor = Color.SteelBlue;
         }
         private void Form2_Load(object sender, EventArgs e)
         {

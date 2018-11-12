@@ -16,8 +16,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             Panel();
-
             ClientSize = new Size(610, 300);
+            BackColor = Color.CornflowerBlue;
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -39,10 +39,12 @@ namespace WindowsFormsApp1
             panel1.Location = new Point(10, 10);
             panel1.Size = new Size(590, 280);
             panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.BackColor = Color.SteelBlue;
 
             ID_label.Text = "회원 ID / 이름";
             ID_label.Size = new Size(165, 30);
             ID_label.Location = new Point(30, 30);
+            ID_label.ForeColor = Color.White;
             ID_label.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
 
             Content.Text = "";
@@ -54,22 +56,25 @@ namespace WindowsFormsApp1
             Search_Btn.Size = new Size(70, 40);
             Search_Btn.Location = new Point(470, 29);
             Search_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
-            Search_Btn.BackColor = Color.Black;
+            Search_Btn.BackColor = Color.DarkBlue;
             Search_Btn.ForeColor = Color.White;
 
             Seat_Num.Text = "좌석 번호";
             Seat_Num.Size = new Size(100, 30);
             Seat_Num.Location = new Point(70, 80);
+            Seat_Num.ForeColor = Color.White;
             Seat_Num.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
 
             Name.Text = "이름";
             Name.Size = new Size(100, 30);
             Name.Location = new Point(250, 80);
+            Name.ForeColor = Color.White;
             Name.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
 
             userID.Text = "회원 ID";
             userID.Size = new Size(100, 30);
             userID.Location = new Point(410, 80);
+            userID.ForeColor = Color.White;
             userID.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
 
             Search_View.Size = new Size(550, 150);
