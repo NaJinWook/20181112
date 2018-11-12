@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,55 +16,140 @@ namespace WindowsFormsApp
         public Form1()
         {
             InitializeComponent();
-            Load += Form1_Load; // 생성자가 만들어지면서 이것도 실행하면 아래 Form1_Load가 로드된다.
+            Load += Form1_Load;
         }
 
-        private Button btn; // btn을 전역으로 쓰겠다라는 의미.
+        private Button btn;
+        private Label lb;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 3; i++)
+            ArrayList arrList = new ArrayList();
+            arrList.Add(new Item("button", 30, 30, "btn_1"));
+            arrList.Add(new Item("label", 30, 110, "lb_1"));
+            arrList.Add(new Item("button", 30, 190, "btn_2"));
+            for (int i = 0; i < arrList.Count; i++)
             {
-                btn = new Button();
-                btn.DialogResult = DialogResult.OK;
-                
-                btn.Name = string.Format("btn_{0}", (i + 1));
-
-                btn.Text = string.Format("확인 : {0}", (i + 1));
-                btn.Size = new Size(100, 50);
-                btn.Location = new Point((100 * i) + 30, 30); // 0, 100, 200 만큼 x축을 이동해서 버튼을 옆으로 나열한다.
-
-                btn.Cursor = Cursors.Hand; // 버튼 커서에 마우스를 가져다대면 손가락 모양이 나타난다.
-
-                Controls.Add(btn); // Add에서 여러개 넣은것이므로 Controls은 배열이다. s가붙은것은 컨트롤이 여러개 들어있다는 의미.
-                btn.Click += btn_click;
+                Control_Create((Item)arrList[i]);
             }
+            /*
+            string[] ctrList = {"button","label","button"};
+
+            for (int i = 0; i < ctrList.Length; i++)
+            {
+                if (ctrList[i] == "button")
+                {
+                    Controls.Add(btn_create(i));
+                }
+                else if (ctrList[i] == "label")
+                {
+                    Controls.Add(lb_create(i));
+                }
+            }
+            */
+        }
+
+        private void Control_Create(Item item)
+        {
+            Control ctr = new Control();
+
+            switch (item.getType())
+            {
+                case "button":
+                    Button btn = new Button();
+                    btn.DialogResult = DialogResult.OK;
+                    ctr = btn;
+                    break;
+                case "label":
+                    ctr = new Label();
+                    break;
+                default:
+                    break;
+            }
+            ctr.Name = item.getTxt();
+            ctr.Text = item.getTxt();
+            ctr.Size = new Size(100, 50);
+            ctr.Location = new Point(item.getX(), item.getY());
+            Controls.Add(ctr);
+        }
+
+        private Button btn_create(int i)
+        {
+            btn = new Button();
+            btn.DialogResult = DialogResult.OK;
+            btn.Name = string.Format("btn_{0}", (i + 1));
+            btn.Text = string.Format("확인 : {0}", (i + 1));
+            btn.Size = new Size(100, 50);
+            btn.Location = new Point((100 * i) + 30, 30);
+            btn.Cursor = Cursors.Hand;
+            btn.Click += btn_click;
+            return btn;
+        }
+
+        private Label lb_create(int i)
+        {
+            lb = new Label();
+            lb.Name = string.Format("lb_{0}", (i + 1));
+            lb.Text = string.Format("확인 : {0}", (i + 1));
+            lb.Size = new Size(100, 50);
+            lb.Location = new Point((100 * i) + 30, 30);
+            return lb;
         }
 
         private void btn_click(object o, EventArgs a)
         {
+
             // string names = "";
-            foreach(Control ct in Controls)
+            foreach (Control ct in Controls)
             {
                 // names += ct.Name + " ";
-
-                if(ct.Name != "btn_3") ct.BackColor = Color.Silver;
+                if (ct.Name != "btn_3") ct.BackColor = Color.Silver;
             }
             // MessageBox.Show(names);
 
-
-            btn = (Button) o; // 버튼은 오브젝트라고 형변환해줘야함
+            btn = (Button)o;
             btn.BackColor = (btn.BackColor == Color.Green) ? btn.BackColor = Color.Silver : btn.BackColor = Color.Green;
             /*
-            if(btn.BackColor == Color.Green)
+            if (btn.BackColor == Color.Green)
             {
-                btn.BackColor = Color.Silver; // 기본 색상
+                btn.BackColor = Color.Silver;
             }
             else
             {
-                btn.BackColor = Color.Green; // 버튼 색깔을 Green으로 지정
-            }
+                btn.BackColor = Color.Green;
+            } 
             */
+        }
+    }
+
+    public class Item
+    {
+        private string type;
+        private int x;
+        private int y;
+        private string txt;
+        public Item(string type, int x, int y, string txt)
+        {
+            this.type = type;
+            this.x = x;
+            this.y = y;
+            this.txt = txt;
+        }
+        public string getType()
+        {
+            return type;
+        }
+        public int getX()
+        {
+            return x;
+        }
+        public int getY()
+        {
+            return y;
+        }
+        public string getTxt()
+        {
+            return txt;
         }
     }
 }
