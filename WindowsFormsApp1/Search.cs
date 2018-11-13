@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form3 : Form
+    public partial class Search : Form
     {
-        public Form3()
+        public Search()
         {
             InitializeComponent();
             Panel();
@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
             BackColor = Color.CornflowerBlue;
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void Search_Load(object sender, EventArgs e)
         {
             
         }
@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
 
             panel1.Location = new Point(10, 10);
             panel1.Size = new Size(590, 280);
-            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             panel1.BackColor = Color.SteelBlue;
 
             ID_label.Text = "회원 ID / 이름";

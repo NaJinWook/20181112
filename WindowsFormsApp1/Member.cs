@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form2 : Form
+    public partial class Member : Form
     {
-        public Form2()
+        public Member()
         {
             InitializeComponent();
             ClientSize = new Size(250, 120);
             BackColor = Color.SteelBlue;
+
+
+
         }
-        private void Form2_Load(object sender, EventArgs e)
+        private void Member_Load(object sender, EventArgs e)
         {
             Button Member_Btn = new Button();
             Member_Btn.DialogResult = DialogResult.OK;
