@@ -16,9 +16,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             ClientSize = new Size(250, 120);
-            BackColor = Color.SteelBlue;
-
-
+            BackColor = Color.DimGray;
 
         }
         private void Member_Load(object sender, EventArgs e)
@@ -39,8 +37,8 @@ namespace WindowsFormsApp1
             NonMember_Btn.Size = new Size(90, 60);
             NonMember_Btn.Location = new Point(130, 30);
             Controls.Add(NonMember_Btn);
-            NonMember_Btn.BackColor = Color.Silver;
-            NonMember_Btn.ForeColor = Color.Black;
+            NonMember_Btn.BackColor = Color.DarkGray;
+            NonMember_Btn.ForeColor = Color.White;
             NonMember_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
         }
     }

@@ -15,14 +15,13 @@ namespace WindowsFormsApp1
         public Search()
         {
             InitializeComponent();
-            Panel();
             ClientSize = new Size(610, 300);
-            BackColor = Color.CornflowerBlue;
+            MaximizeBox = false;
         }
 
         private void Search_Load(object sender, EventArgs e)
         {
-            
+            Panel();
         }
 
         public void Panel()
@@ -39,7 +38,7 @@ namespace WindowsFormsApp1
             panel1.Location = new Point(10, 10);
             panel1.Size = new Size(590, 280);
             panel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            panel1.BackColor = Color.SteelBlue;
+            panel1.BackColor = Color.DimGray;
 
             ID_label.Text = "회원 ID / 이름";
             ID_label.Size = new Size(165, 30);
