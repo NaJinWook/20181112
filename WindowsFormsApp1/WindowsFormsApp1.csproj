@@ -58,6 +58,12 @@
     <Compile Include="Member.Designer.cs">
       <DependentUpon>Member.cs</DependentUpon>
     </Compile>
+    <Compile Include="Member_Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Member_Time.Designer.cs">
+      <DependentUpon>Member_Time.cs</DependentUpon>
+    </Compile>
     <Compile Include="Search.cs">
       <SubType>Form</SubType>
     </Compile>
