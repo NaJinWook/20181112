@@ -17,10 +17,14 @@ namespace WindowsFormsApp1
             InitializeComponent();
             ClientSize = new Size(610, 300);
             MaximizeBox = false;
+            Load += Search_Load;
         }
 
         private void Search_Load(object sender, EventArgs e)
         {
+            DesktopLocation = new Point(300, 200);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Panel();
         }
 
@@ -30,9 +34,6 @@ namespace WindowsFormsApp1
             Label ID_label = new Label();
             TextBox Content = new TextBox();
             Button Search_Btn = new Button();
-            Label Seat_Num = new Label();
-            Label Name = new Label();
-            Label userID = new Label();
             ListView Search_View = new ListView();
 
             panel1.Location = new Point(10, 10);
@@ -55,38 +56,63 @@ namespace WindowsFormsApp1
             Search_Btn.Size = new Size(70, 40);
             Search_Btn.Location = new Point(470, 29);
             Search_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
-            Search_Btn.BackColor = Color.DarkBlue;
+            Search_Btn.BackColor = Color.DimGray;
             Search_Btn.ForeColor = Color.White;
+            Search_Btn.Click += Search_Btn_click;
 
-            Seat_Num.Text = "좌석 번호";
-            Seat_Num.Size = new Size(100, 30);
-            Seat_Num.Location = new Point(70, 80);
-            Seat_Num.ForeColor = Color.White;
-            Seat_Num.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
+            ColumnHeader columnHeader1 = new ColumnHeader();
+            ColumnHeader columnHeader2 = new ColumnHeader();
+            ColumnHeader columnHeader3 = new ColumnHeader();
+            ColumnHeader columnHeader4 = new ColumnHeader();
+            Search_View.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            Search_View.BackColor = Color.WhiteSmoke;
+            Search_View.Font = new Font(FontFamily.GenericSansSerif, 13.0F, FontStyle.Bold);
 
-            Name.Text = "이름";
-            Name.Size = new Size(100, 30);
-            Name.Location = new Point(250, 80);
-            Name.ForeColor = Color.White;
-            Name.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
+            columnHeader1.Text = "순번";
+            columnHeader1.Width = 40;
+            columnHeader1.TextAlign = HorizontalAlignment.Center;
 
-            userID.Text = "회원 ID";
-            userID.Size = new Size(100, 30);
-            userID.Location = new Point(410, 80);
-            userID.ForeColor = Color.White;
-            userID.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
+            columnHeader2.Text = "좌석 번호";
+            columnHeader2.Width = 170;
+            columnHeader2.TextAlign = HorizontalAlignment.Center;
 
-            Search_View.Size = new Size(550, 150);
-            Search_View.Location = new Point(20, 110);
+            columnHeader3.Text = "이름";
+            columnHeader3.Width = 170;
+            columnHeader3.TextAlign = HorizontalAlignment.Center;
 
-            this.Controls.Add(panel1);
+            columnHeader4.Text = "회원 ID";
+            columnHeader4.Width = 170;
+            columnHeader4.TextAlign = HorizontalAlignment.Center;
+
+            Search_View.GridLines = true;
+            Search_View.Size = new Size(550, 160);
+            Search_View.Location = new Point(20, 100);
+            Search_View.TabIndex = 0;
+            Search_View.UseCompatibleStateImageBehavior = false;
+            Search_View.View = View.Details;
+
+            ListViewItem item1 = new ListViewItem();
+            ListViewItem item2 = new ListViewItem();
+            ListViewItem item3 = new ListViewItem();
+            ListViewItem item4 = new ListViewItem();
+            Search_View.Items.AddRange(new ListViewItem[] { item1, item2, item3, item4 });
+
+
+            Controls.Add(panel1);
             panel1.Controls.Add(ID_label);
             panel1.Controls.Add(Content);
             panel1.Controls.Add(Search_Btn);
-            panel1.Controls.Add(Seat_Num);
-            panel1.Controls.Add(Name);
-            panel1.Controls.Add(userID);
+            //panel1.Controls.Add(Seat_Num);
+            //panel1.Controls.Add(Name);
+            //panel1.Controls.Add(userID);
             panel1.Controls.Add(Search_View);
+
+        }
+        public void Search_Btn_click(object o, EventArgs a)
+        {
+            Button Search_Btn;
+            Search_Btn = (Button)o;
+            MessageBox.Show("클릭성공");
         }
     }
 }

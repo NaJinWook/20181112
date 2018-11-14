@@ -17,12 +17,15 @@ namespace WindowsFormsApp1
             InitializeComponent();
             ClientSize = new Size(250, 120);
             BackColor = Color.DimGray;
-
+            Load += Member_Load;
         }
         private void Member_Load(object sender, EventArgs e)
         {
+            DesktopLocation = new Point(130, 200);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             Button Member_Btn = new Button();
-            Member_Btn.DialogResult = DialogResult.OK;
             Member_Btn.Text = "회원";
             Member_Btn.Size = new Size(90, 60);
             Member_Btn.Location = new Point(30, 30);
@@ -32,14 +35,14 @@ namespace WindowsFormsApp1
             Member_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
 
             Button NonMember_Btn = new Button();
-            NonMember_Btn.DialogResult = DialogResult.OK;
             NonMember_Btn.Text = "비회원";
             NonMember_Btn.Size = new Size(90, 60);
             NonMember_Btn.Location = new Point(130, 30);
             Controls.Add(NonMember_Btn);
-            NonMember_Btn.BackColor = Color.DarkGray;
+            NonMember_Btn.BackColor = Color.DimGray;
             NonMember_Btn.ForeColor = Color.White;
             NonMember_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
+
         }
     }
 }

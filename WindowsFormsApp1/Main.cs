@@ -21,6 +21,8 @@ namespace WindowsFormsApp1
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            DesktopLocation = new Point(100, 100);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel();
         }
         public void Panel()
@@ -43,6 +45,7 @@ namespace WindowsFormsApp1
             Label sbt = new Label();
             Label test = new Label();
 
+
             panel.Location = new Point(10, 10);
             panel.Size = new Size(950, 75);
             panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -64,7 +67,7 @@ namespace WindowsFormsApp1
             Info_Btn.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
             Info_Btn.Click += Info_Btn_click;
 
-            logo.Image = Bitmap.FromFile(@"C:\schubert.png");
+            //logo.Image = Bitmap.FromFile(@"C:\schubert.png");
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
             logo.Size = new Size(50, 50);
             logo.Location = new Point(700, 10);
@@ -87,6 +90,7 @@ namespace WindowsFormsApp1
             panel.Controls.Add(logo);
             panel.Controls.Add(sbt);
             panel.Controls.Add(test);
+
         }
 
         private void Charge_Btn_click(object o, EventArgs a)
@@ -108,17 +112,28 @@ namespace WindowsFormsApp1
         public void Panel2()
         {
             Panel panel = new Panel();
+            Button seat = new Button();
+
             panel.Location = new Point(10, 10);
             panel.Size = new Size(950, 600);
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.BackColor = Color.Gray;
-            this.Controls.Add(panel);
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    seat.Size = new Size(80, 50);
+            //    seat.Location = new Point((15*i)+ 15, 85);
+            //    seat.BackColor = Color.Red;
+            //    panel.Controls.Add(seat);
+            //}
+            Controls.Add(panel);
+
         }
         public void Panel3()
         {
             Panel panel = new Panel();
             Label notice = new Label();
-            
+
             panel.Location = new Point(970, 10);
             panel.Size = new Size(220, 600);
             panel.BorderStyle = BorderStyle.FixedSingle;
@@ -132,7 +147,7 @@ namespace WindowsFormsApp1
             notice.Font = new Font(FontFamily.GenericSansSerif, 18.0F, FontStyle.Bold);
             notice.ForeColor = Color.White;
 
-            this.Controls.Add(panel);
+            Controls.Add(panel);
             panel.Controls.Add(notice);
         }
     }
