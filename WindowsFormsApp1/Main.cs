@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         Panel panel;
         ArrayList arrayList;
         Button Seat_Btn;
+        Reuse re = new Reuse();
         public Main()
         {
             InitializeComponent();
@@ -47,9 +48,8 @@ namespace WindowsFormsApp1
             Button Charge_Btn = new Button();
             Button Info_Btn = new Button();
             PictureBox logo = new PictureBox();
-            Label sbt = new Label();
-            Label test = new Label();
-
+            //Label sbt = new Label();
+            //Label test = new Label();
 
             panel.Location = new Point(10, 10);
             panel.Size = new Size(970, 75);
@@ -73,32 +73,31 @@ namespace WindowsFormsApp1
             Info_Btn.Click += Info_Btn_click;
 
             
-
-            logo.Image = Bitmap.FromFile(@"C:\schubert.png");
+            //logo.Image = Bitmap.FromFile(@"C:\schubert.png");
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
             logo.Size = new Size(50, 50);
             logo.Location = new Point(700, 10);
 
-            sbt.Text = "Schubert PC";
-            sbt.Size = new Size(200, 100);
-            sbt.Location = new Point(760, 18);
-            sbt.Font = new Font(FontFamily.GenericSansSerif, 22.0F, FontStyle.Bold);
-            sbt.ForeColor = Color.White;
+            re.Plb(panel, "sbt", "Schubert PC", 200, 100, 760, 18,Color.DimGray,Color.White, FontFamily.GenericSansSerif,22,FontStyle.Bold);
+            //sbt.Text = "Schubert PC";
+            //sbt.Size = new Size(200, 100);
+            //sbt.Location = new Point(760, 18);
+            //sbt.Font = new Font(FontFamily.GenericSansSerif, 22F, FontStyle.Bold);
+            //sbt.ForeColor = Color.White;
 
-            test.Text = "test 테스트 중입니다!!";
-            test.Size = new Size(300, 100);
-            test.Location = new Point(380, 15);
-            test.Font = new Font(FontFamily.GenericSansSerif, 25.0F, FontStyle.Bold);
-            test.ForeColor = Color.Yellow;
+            re.Plb(panel, "test", "test 테스트 중입니다!!", 300, 100, 380, 15,Color.DimGray ,Color.Yellow, FontFamily.GenericSansSerif, 25, FontStyle.Bold);
+            //test.Text = "test 테스트 중입니다!!";
+            //test.Size = new Size(300, 100);
+            //test.Location = new Point(380, 15);
+            //test.Font = new Font(FontFamily.GenericSansSerif, 25F, FontStyle.Bold);
+            //test.ForeColor = Color.Yellow;
 
             Controls.Add(panel);
             panel.Controls.Add(Charge_Btn);
             panel.Controls.Add(Info_Btn);
             panel.Controls.Add(logo);
-            panel.Controls.Add(sbt);
-            panel.Controls.Add(test);
-
-
+            //panel.Controls.Add(sbt);
+            //panel.Controls.Add(test);
         }
 
         private void Charge_Btn_click(object o, EventArgs a)

@@ -58,6 +58,7 @@
     <Compile Include="Non_Member_Time.Designer.cs">
       <DependentUpon>Non_Member_Time.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reuse.cs" />
     <Compile Include="Search.cs">
       <SubType>Form</SubType>
     </Compile>

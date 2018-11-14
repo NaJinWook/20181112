@@ -12,8 +12,10 @@ namespace WindowsFormsApp1
 {
     public partial class Member : Form
     {
+        Reuse re = new Reuse();
         public Member()
         {
+            
             InitializeComponent();
             ClientSize = new Size(250, 120);
             BackColor = Color.DimGray;
@@ -26,11 +28,13 @@ namespace WindowsFormsApp1
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
 
+            //re.Btn(this, "Member_Btn", "회원", 90, 60, 30, 30, Color.Green, Color.White, FontFamily.GenericSansSerif,20,FontStyle.Bold);
             Button Member_Btn = new Button();
             Member_Btn.Text = "회원";
             Member_Btn.Size = new Size(90, 60);
             Member_Btn.Location = new Point(30, 30);
             Controls.Add(Member_Btn);
+
             Member_Btn.BackColor = Color.Green;
             Member_Btn.ForeColor = Color.White;
             Member_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
