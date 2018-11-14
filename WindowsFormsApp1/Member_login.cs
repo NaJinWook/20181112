@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Search : Form
+    public partial class Member_login : Form
     {
-        public Search()
+
+        TextBox Content;
+        public Member_login()
         {
             InitializeComponent();
             ClientSize = new Size(610, 300);
@@ -27,21 +29,19 @@ namespace WindowsFormsApp1
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Panel();
         }
-        Panel pan;
-        TextBox Content;
-        ListViewItem item1;
+
         public void Panel()
         {
-            pan = new Panel();
+            Panel panel1 = new Panel();
             Label ID_label = new Label();
             Content = new TextBox();
             Button Search_Btn = new Button();
             ListView Search_View = new ListView();
 
-            pan.Location = new Point(10, 10);
-            pan.Size = new Size(590, 280);
-            pan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            pan.BackColor = Color.DimGray;
+            panel1.Location = new Point(10, 10);
+            panel1.Size = new Size(590, 280);
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            panel1.BackColor = Color.DimGray;
 
             ID_label.Text = "회원 ID / 이름";
             ID_label.Size = new Size(165, 30);
@@ -49,7 +49,6 @@ namespace WindowsFormsApp1
             ID_label.ForeColor = Color.White;
             ID_label.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
 
-            Content.Name = "Content";
             Content.Text = "";
             Content.Size = new Size(260, 200);
             Content.Location = new Point(210, 30);
@@ -95,42 +94,28 @@ namespace WindowsFormsApp1
             Search_View.UseCompatibleStateImageBehavior = false;
             Search_View.View = View.Details;
 
-            item1 = new ListViewItem("");
+            ListViewItem item1 = new ListViewItem();
             ListViewItem item2 = new ListViewItem();
             ListViewItem item3 = new ListViewItem();
             ListViewItem item4 = new ListViewItem();
             Search_View.Items.AddRange(new ListViewItem[] { item1, item2, item3, item4 });
 
 
-
-            Controls.Add(pan);
-            pan.Controls.Add(ID_label);
-            pan.Controls.Add(Content);
-            pan.Controls.Add(Search_Btn);
-            pan.Controls.Add(Search_View);
+            Controls.Add(panel1);
+            panel1.Controls.Add(ID_label);
+            panel1.Controls.Add(Content);
+            panel1.Controls.Add(Search_Btn);
+            //panel1.Controls.Add(Seat_Num);
+            //panel1.Controls.Add(Name);
+            //panel1.Controls.Add(userID);
+            panel1.Controls.Add(Search_View);
 
         }
         public void Search_Btn_click(object o, EventArgs a)
         {
-            foreach (Control ctr in pan.Controls)
-            {
-                if (Content.Text == "나진욱" || Content.Text == "나진"|| Content.Text == "진욱")
-                {
-                    item1.SubItems.Add("1");
-                    item1.SubItems.Add("나진욱");
-                    item1.SubItems.Add("skwlsdnr94");
-                }
-                else if (Content.Text == "천호성" || Content.Text == "천호"||Content.Text == "호성")
-                {
-                    item1.SubItems.Add("2");
-                    item1.SubItems.Add("천호성");
-                    item1.SubItems.Add("hosung1000");
-                }
-                else if(Content.Text == "")
-                {
-                    item1.SubItems.Clear();
-                }
-            }
+            Button Search_Btn;
+            Search_Btn = (Button)o;
+            Content.Text = "";
         }
     }
 }

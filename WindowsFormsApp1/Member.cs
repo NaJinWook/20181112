@@ -33,6 +33,7 @@ namespace WindowsFormsApp1
             Member_Btn.BackColor = Color.Green;
             Member_Btn.ForeColor = Color.White;
             Member_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
+            Member_Btn.Click += Member_click;
 
             Button NonMember_Btn = new Button();
             NonMember_Btn.Text = "비회원";
@@ -42,7 +43,15 @@ namespace WindowsFormsApp1
             NonMember_Btn.BackColor = Color.DimGray;
             NonMember_Btn.ForeColor = Color.White;
             NonMember_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
+        }
 
+        private void Member_click(object o, EventArgs e)
+        {
+
+            Button Charge_Btn;
+            Charge_Btn = (Button)o;
+
+            Member_login ml = new Member_login();
         }
     }
 }

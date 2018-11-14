@@ -12,24 +12,25 @@ namespace WindowsFormsApp1
 {
     public partial class Main : Form
     {
+        Panel panel;
         public Main()
         {
             InitializeComponent();
             Load += Main_Load;
-            ClientSize = new Size(1200, 620);
-
+            ClientSize = new Size(1220, 603);
         }
         private void Main_Load(object sender, EventArgs e)
         {
             DesktopLocation = new Point(100, 100);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel();
+            
         }
         public void Panel()
         {
-            Panel panel = new Panel();
+            panel = new Panel();
             panel.Location = new Point(10, 10);
-            panel.Size = new Size(1200, 620);
+            panel.Size = new Size(1220, 620);
             panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel.BackColor = Color.DarkGray;
             Panel1();
@@ -38,7 +39,7 @@ namespace WindowsFormsApp1
         }
         public void Panel1()
         {
-            Panel panel = new Panel();
+            panel = new Panel();
             Button Charge_Btn = new Button();
             Button Info_Btn = new Button();
             PictureBox logo = new PictureBox();
@@ -47,7 +48,7 @@ namespace WindowsFormsApp1
 
 
             panel.Location = new Point(10, 10);
-            panel.Size = new Size(950, 75);
+            panel.Size = new Size(970, 75);
             panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel.BackColor = Color.DimGray;
 
@@ -67,6 +68,8 @@ namespace WindowsFormsApp1
             Info_Btn.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
             Info_Btn.Click += Info_Btn_click;
 
+            
+
             //logo.Image = Bitmap.FromFile(@"C:\schubert.png");
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
             logo.Size = new Size(50, 50);
@@ -74,7 +77,7 @@ namespace WindowsFormsApp1
 
             sbt.Text = "Schubert PC";
             sbt.Size = new Size(200, 100);
-            sbt.Location = new Point(750, 18);
+            sbt.Location = new Point(760, 18);
             sbt.Font = new Font(FontFamily.GenericSansSerif, 22.0F, FontStyle.Bold);
             sbt.ForeColor = Color.White;
 
@@ -84,12 +87,13 @@ namespace WindowsFormsApp1
             test.Font = new Font(FontFamily.GenericSansSerif, 25.0F, FontStyle.Bold);
             test.ForeColor = Color.Yellow;
 
-            this.Controls.Add(panel);
+            Controls.Add(panel);
             panel.Controls.Add(Charge_Btn);
             panel.Controls.Add(Info_Btn);
             panel.Controls.Add(logo);
             panel.Controls.Add(sbt);
             panel.Controls.Add(test);
+
 
         }
 
@@ -111,11 +115,11 @@ namespace WindowsFormsApp1
         }
         public void Panel2()
         {
-            Panel panel = new Panel();
+            panel = new Panel();
             Button seat = new Button();
 
             panel.Location = new Point(10, 10);
-            panel.Size = new Size(950, 600);
+            panel.Size = new Size(970, 583);
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.BackColor = Color.Gray;
 
@@ -127,15 +131,16 @@ namespace WindowsFormsApp1
             //    panel.Controls.Add(seat);
             //}
             Controls.Add(panel);
+            Seat();
 
         }
         public void Panel3()
         {
-            Panel panel = new Panel();
+            panel = new Panel();
             Label notice = new Label();
 
-            panel.Location = new Point(970, 10);
-            panel.Size = new Size(220, 600);
+            panel.Location = new Point(990, 10);
+            panel.Size = new Size(220, 583);
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.BackColor = Color.Gray;
 
@@ -143,12 +148,28 @@ namespace WindowsFormsApp1
                 "\n\nSchubert PC는\n유료 게임 시간 차감을\n별도로 하지 않습니다." +
                 "\n\n문제 발생시 카운터로\n문의해주세요.";
             notice.Size = new Size(300, 400);
-            notice.Location = new Point(10, 290);
+            notice.Location = new Point(10, 273);
             notice.Font = new Font(FontFamily.GenericSansSerif, 18.0F, FontStyle.Bold);
             notice.ForeColor = Color.White;
 
             Controls.Add(panel);
             panel.Controls.Add(notice);
+        }
+
+        private void Seat()
+        {
+            for(int i=0; i<7; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Button Seat_Btn = new Button();
+                    Seat_Btn.Size = new Size(85, 60);
+                    Seat_Btn.Location = new Point((94 * j) + 19, (69 * i) + 90);
+                    Seat_Btn.BackColor = Color.DimGray;
+                    
+                    panel.Controls.Add(Seat_Btn);
+                }
+            }
         }
     }
 }
