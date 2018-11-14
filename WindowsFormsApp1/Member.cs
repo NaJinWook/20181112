@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
             BackColor = Color.DimGray;
             Load += Member_Load;
         }
+        
         private void Member_Load(object sender, EventArgs e)
         {
             DesktopLocation = new Point(130, 200);
@@ -43,15 +44,25 @@ namespace WindowsFormsApp1
             NonMember_Btn.BackColor = Color.DimGray;
             NonMember_Btn.ForeColor = Color.White;
             NonMember_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
+            NonMember_Btn.Click += NonMember_click;
         }
 
         private void Member_click(object o, EventArgs e)
         {
-
             Button Charge_Btn;
             Charge_Btn = (Button)o;
 
             Member_login ml = new Member_login();
+            ml.ShowDialog();
+        }
+        private void NonMember_click(object o, EventArgs e)
+        {
+            Button Charge_Btn;
+            Charge_Btn = (Button)o;
+
+            Non_Member_Time nt = new Non_Member_Time();
+            nt.Show();
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace WindowsFormsApp1
     public partial class Main : Form
     {
         Panel panel;
+        ArrayList arrayList;
+        Button Seat_Btn;
         public Main()
         {
             InitializeComponent();
@@ -21,6 +24,7 @@ namespace WindowsFormsApp1
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            arrayList = new ArrayList();
             DesktopLocation = new Point(100, 100);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel();
@@ -70,7 +74,7 @@ namespace WindowsFormsApp1
 
             
 
-            //logo.Image = Bitmap.FromFile(@"C:\schubert.png");
+            logo.Image = Bitmap.FromFile(@"C:\schubert.png");
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
             logo.Size = new Size(50, 50);
             logo.Location = new Point(700, 10);
@@ -123,13 +127,6 @@ namespace WindowsFormsApp1
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.BackColor = Color.Gray;
 
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    seat.Size = new Size(80, 50);
-            //    seat.Location = new Point((15*i)+ 15, 85);
-            //    seat.BackColor = Color.Red;
-            //    panel.Controls.Add(seat);
-            //}
             Controls.Add(panel);
             Seat();
 
@@ -156,20 +153,41 @@ namespace WindowsFormsApp1
             panel.Controls.Add(notice);
         }
 
+
+        //Button Seat_Btn = new Button();
         private void Seat()
         {
-            for(int i=0; i<7; i++)
+            int count = 1;
+            
+            for (int i=0; i<7; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    Button Seat_Btn = new Button();
+                    Seat_Btn = new Button();
                     Seat_Btn.Size = new Size(85, 60);
                     Seat_Btn.Location = new Point((94 * j) + 19, (69 * i) + 90);
+                    Seat_Btn.Name = string.Format("btn{0}",count++);
                     Seat_Btn.BackColor = Color.DimGray;
-                    
-                    panel.Controls.Add(Seat_Btn);
+
+                    arrayList.Add(Seat_Btn);
+
+                    panel.Controls.Add(Seat_Btn);   
                 }
             }
+            Seat_Btn.Click += Seat_clik;
+
+        }
+
+        private void Seat_clik(object o, EventArgs e)
+        {
+
+            for(int i =0; i< arrayList.Count; i++)
+            {
+                Button button = (Button)arrayList[i];
+                MessageBox.Show(button.Name);
+            }
+
+            
         }
     }
 }
