@@ -15,13 +15,13 @@ namespace WindowsFormsApp1
         Reuse re = new Reuse();
         public Member()
         {
-            
+
             InitializeComponent();
             ClientSize = new Size(250, 120);
             BackColor = Color.DimGray;
             Load += Member_Load;
         }
-        
+
         private void Member_Load(object sender, EventArgs e)
         {
             DesktopLocation = new Point(130, 200);

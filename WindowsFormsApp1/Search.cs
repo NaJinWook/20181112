@@ -83,7 +83,7 @@ namespace WindowsFormsApp1
 
             columnHeader1.Text = "";
             columnHeader1.Width = 0;
-            
+
             columnHeader2.Text = "좌석 번호";
             columnHeader2.Width = 182;
             columnHeader2.TextAlign = HorizontalAlignment.Center;
@@ -121,13 +121,13 @@ namespace WindowsFormsApp1
         {
             foreach (Control ctr in panel.Controls)
             {
-                if (Content.Text == "나진욱" || Content.Text == "나진"|| Content.Text == "진욱")
+                if (Content.Text == "나진욱" || Content.Text == "나진" || Content.Text == "진욱")
                 {
                     item1.SubItems.Add("1");
                     item1.SubItems.Add("나진욱");
                     item1.SubItems.Add("skwlsdnr94");
                 }
-                else if(Content.Text == "나")
+                else if (Content.Text == "나")
                 {
                     item1.SubItems.Add("1");
                     item1.SubItems.Add("나진욱");

@@ -16,15 +16,14 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             ClientSize = new Size(1200, 620);
-            BackColor = Color.DimGray;
-            Non_Member_Panel_1();
-            Non_Member_Panel_2();
+            BackColor = Color.DimGray; 
             Load += Non_Member_Time_Load;
         }
 
         private void Non_Member_Time_Load(object sender, EventArgs e)
         {
-            
+            Non_Member_Panel_1();
+            Non_Member_Panel_2();
         }
 
         Label Member_Label_3;
