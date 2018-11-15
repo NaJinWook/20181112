@@ -30,6 +30,7 @@ namespace WindowsFormsApp1
             DesktopLocation = new Point(550, 310);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             Panel();
         }
 
@@ -121,6 +122,7 @@ namespace WindowsFormsApp1
             panel.Controls.Add(Search_View);
 
         }
+
         public void Search_Btn_click(object o, EventArgs a)
         {
             foreach (Control ctr in panel.Controls)
@@ -154,6 +156,7 @@ namespace WindowsFormsApp1
                     item2.SubItems.Add("34");
                     item2.SubItems.Add("천호천");
                     item2.SubItems.Add("how0841");
+
                 }
                 else if (Content.Text == "천")
                 {
@@ -166,9 +169,6 @@ namespace WindowsFormsApp1
                     item3.SubItems.Add("34");
                     item3.SubItems.Add("천호천");
                     item3.SubItems.Add("how0841");
-                    item4.SubItems.Add("60");
-                    item4.SubItems.Add("천청명");
-                    item4.SubItems.Add("cm1035");
                 }
             }
         }
@@ -180,6 +180,33 @@ namespace WindowsFormsApp1
             item4.SubItems.Clear();
             Content.Text = "";
             Content.Focus();
+        }
+
+        public void Member_login_esc(object o, KeyEventArgs k)
+        {
+            if (k.KeyCode == Keys.Escape)
+            {
+                item1.SubItems.Clear();
+                item2.SubItems.Clear();
+                item3.SubItems.Clear();
+                item4.SubItems.Clear();
+                Content.Text = "";
+                Content.Focus();
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                item1.SubItems.Clear();
+                item2.SubItems.Clear();
+                item3.SubItems.Clear();
+                item4.SubItems.Clear();
+                Content.Text = "";
+                Content.Focus();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

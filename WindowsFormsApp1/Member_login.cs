@@ -15,18 +15,20 @@ namespace WindowsFormsApp1
         TextBox Content;
         Panel panel = new Panel();
         ListViewItem item1, item2, item3, item4;
+        Reuse re = new Reuse();
         public Member_login()
         {
             InitializeComponent();
             ClientSize = new Size(1000, 600);
             MaximizeBox = false;
-            Load += Search_Load;
+            Load += Member_login_Load;
         }
 
-        private void Search_Load(object sender, EventArgs e)
+        private void Member_login_Load(object sender, EventArgs e)
         {
             if (Application.OpenForms["Member"] is Form Member) Member.Close();
             if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
+            this.KeyPreview = true;
             DesktopLocation = new Point(350, 200);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -37,8 +39,9 @@ namespace WindowsFormsApp1
         {
             Content = new TextBox();
             Button Main_Btn = new Button();
-            Label ID_label = new Label();
+            //Label ID_label = new Label();
             Button Search_Btn = new Button();
+            Button Remove_Btn = new Button();
             ListView Search_View = new ListView();
 
             panel.Location = new Point(10, 10);
@@ -54,24 +57,33 @@ namespace WindowsFormsApp1
             Main_Btn.ForeColor = Color.White;
             Main_Btn.Click += Main_Btn_click;
 
-            ID_label.Text = "회원 ID / 이름";
-            ID_label.Size = new Size(330, 60);
-            ID_label.Location = new Point(30, 60);
-            ID_label.ForeColor = Color.White;
-            ID_label.Font = new Font(FontFamily.GenericSansSerif, 40.0F, FontStyle.Bold);
+            re.Plb(panel, "ID_label", "회원 ID / 이름", 330, 60, 30, 60, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 40, FontStyle.Bold);
+            //ID_label.Text = "회원 ID / 이름";
+            //ID_label.Size = new Size(330, 60);
+            //ID_label.Location = new Point(30, 60);
+            //ID_label.ForeColor = Color.White;
+            //ID_label.Font = new Font(FontFamily.GenericSansSerif, 40.0F, FontStyle.Bold);
 
             Content.Text = "";
-            Content.Size = new Size(500, 0);
-            Content.Location = new Point(370, 60);
+            Content.Size = new Size(385, 0);
+            Content.Location = new Point(360, 60);
             Content.Font = new Font(FontFamily.GenericSansSerif, 40.0F, FontStyle.Bold);
 
             Search_Btn.Text = "검색";
-            Search_Btn.Size = new Size(90, 70);
-            Search_Btn.Location = new Point(870, 60);
+            Search_Btn.Size = new Size(100, 73);
+            Search_Btn.Location = new Point(750, 57);
             Search_Btn.Font = new Font(FontFamily.GenericSansSerif, 25.0F, FontStyle.Bold);
             Search_Btn.BackColor = Color.DimGray;
             Search_Btn.ForeColor = Color.White;
             Search_Btn.Click += Search_Btn_click;
+
+            Remove_Btn.Text = "지우기";
+            Remove_Btn.Size = new Size(100, 73);
+            Remove_Btn.Location = new Point(855, 57);
+            Remove_Btn.Font = new Font(FontFamily.GenericSansSerif, 25.0F, FontStyle.Bold);
+            Remove_Btn.BackColor = Color.DimGray;
+            Remove_Btn.ForeColor = Color.White;
+            Remove_Btn.Click += Remove_Btn_click;
 
             ColumnHeader columnHeader1 = new ColumnHeader();
             ColumnHeader columnHeader2 = new ColumnHeader();
@@ -111,9 +123,10 @@ namespace WindowsFormsApp1
 
             Controls.Add(panel);
             panel.Controls.Add(Main_Btn);
-            panel.Controls.Add(ID_label);
+            //panel.Controls.Add(ID_label);
             panel.Controls.Add(Content);
             panel.Controls.Add(Search_Btn);
+            panel.Controls.Add(Remove_Btn);
             panel.Controls.Add(Search_View);
 
         }
@@ -130,41 +143,47 @@ namespace WindowsFormsApp1
                 else if (Content.Text == "나")
                 {
                     item1.SubItems.Add("1");
-                    item1.SubItems.Add("나진욱");
-                    item1.SubItems.Add("skwlsdnr94");
-                    item2.SubItems.Add("15");
-                    item2.SubItems.Add("나훈아");
-                    item2.SubItems.Add("huna1846");
+                    item1.SubItems.Add("나윤권");
+                    item1.SubItems.Add("Nana88");
+                    item2.SubItems.Add("2");
+                    item2.SubItems.Add("나얼");
+                    item2.SubItems.Add("Navocal7");
+                    item3.SubItems.Add("3");
+                    item3.SubItems.Add("나진욱");
+                    item3.SubItems.Add("skwlsdnr94");
+                    item4.SubItems.Add("4");
+                    item4.SubItems.Add("나훈아");
+                    item4.SubItems.Add("huna1846");
                 }
                 else if (Content.Text == "천호성" || Content.Text == "호성")
                 {
-                    item1.SubItems.Add("2");
+                    item1.SubItems.Add("1");
                     item1.SubItems.Add("천호성");
                     item1.SubItems.Add("hosung1000");
                 }
                 else if (Content.Text == "천호")
                 {
-                    item1.SubItems.Add("2");
+                    item1.SubItems.Add("1");
                     item1.SubItems.Add("천호성");
                     item1.SubItems.Add("hosung1000");
-                    item2.SubItems.Add("34");
+                    item2.SubItems.Add("2");
                     item2.SubItems.Add("천호천");
                     item2.SubItems.Add("how0841");
                 }
                 else if (Content.Text == "천")
                 {
-                    item1.SubItems.Add("2");
-                    item1.SubItems.Add("천호성");
-                    item1.SubItems.Add("hosung1000");
-                    item2.SubItems.Add("19");
-                    item2.SubItems.Add("천진반");
-                    item2.SubItems.Add("cjb3481");
-                    item3.SubItems.Add("34");
-                    item3.SubItems.Add("천호천");
-                    item3.SubItems.Add("how0841");
-                    item4.SubItems.Add("60");
-                    item4.SubItems.Add("천청명");
-                    item4.SubItems.Add("cm1035");
+                    item1.SubItems.Add("1");
+                    item1.SubItems.Add("천진반");
+                    item1.SubItems.Add("cjb3481");
+                    item2.SubItems.Add("2");
+                    item2.SubItems.Add("천청명");
+                    item2.SubItems.Add("cm1035");
+                    item3.SubItems.Add("3");
+                    item3.SubItems.Add("천호성");
+                    item3.SubItems.Add("hosung1000");
+                    item4.SubItems.Add("4");
+                    item4.SubItems.Add("천호천");
+                    item4.SubItems.Add("how0841"); 
                 }
             }
         }
@@ -172,6 +191,44 @@ namespace WindowsFormsApp1
         {
             if (Application.OpenForms["Main"] is Form Main) Main.Visible = true;
             this.Close();
+        }
+
+        public void Remove_Btn_click(object o, EventArgs e)
+        {
+            item1.SubItems.Clear();
+            item2.SubItems.Clear();
+            item3.SubItems.Clear();
+            item4.SubItems.Clear();
+            Content.Text = "";
+            Content.Focus();
+        }
+
+        // 아래는 Esc키누르면 초기화 시켜주는 부분.
+        public void Member_login_esc(object o, KeyEventArgs k)
+        {
+            if(k.KeyCode == Keys.Escape)
+            {
+                item1.SubItems.Clear();
+                item2.SubItems.Clear();
+                item3.SubItems.Clear();
+                item4.SubItems.Clear();
+                Content.Text = "";
+                Content.Focus();
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                item1.SubItems.Clear();
+                item2.SubItems.Clear();
+                item3.SubItems.Clear();
+                item4.SubItems.Clear();
+                Content.Text = "";
+                Content.Focus();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

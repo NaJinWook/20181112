@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
 
         private void Time_Success_Load(object sender, EventArgs e)
         {
-            DesktopLocation = new Point(100, 100);
+            DesktopLocation = new Point(350, 200);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
@@ -79,16 +79,22 @@ namespace WindowsFormsApp1
 
             Time_Success_button_1.DialogResult = DialogResult.OK;
             Time_Success_button_1.Text = "처음으로";
-            Time_Success_button_1.Size = new Size(250, 150);
-            Time_Success_button_1.Location = new Point(900, 250);
+            Time_Success_button_1.Size = new Size(200, 100);
+            Time_Success_button_1.Location = new Point(940, 290);
             Time_Success_button_1.BackColor = Color.Black;
-            Time_Success_button_1.Font = new Font(FontFamily.GenericSansSerif, 15.0F, FontStyle.Bold);
-
+            Time_Success_button_1.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
+            Time_Success_button_1.Click += Main_Btn_click;
 
             this.Controls.Add(Time_Success_Panel_2);
             Time_Success_Panel_2.Controls.Add(Time_Success_button_1);
             Time_Success_Panel_2.Controls.Add(Time_Success_Label_2);
 
+        }
+
+        public void Main_Btn_click(object o, EventArgs a)
+        {
+            if (Application.OpenForms["Main"] is Form Main) Main.Visible = true;
+            this.Close();
         }
     }
 }

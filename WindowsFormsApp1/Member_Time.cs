@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
     public partial class Member_Time : Form
     {
         Reuse re = new Reuse();
+        Label Member_Label_3;
         public Member_Time()
         {
             InitializeComponent();
@@ -30,7 +31,6 @@ namespace WindowsFormsApp1
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        Label Member_Label_3;
         public void Member_Panel_1()
         {
             Panel Member_Panel_1 = new Panel();
@@ -120,7 +120,7 @@ namespace WindowsFormsApp1
         public void Member_Panel_2()
         {
             Panel Member_Panel_2 = new Panel();
-            Label Member_Label_2 = new Label();
+            //Label Member_Label_2 = new Label();
             Member_Label_3 = new Label();
             Button Member_button_7 = new Button();
             Button Member_button_8 = new Button();
@@ -131,12 +131,13 @@ namespace WindowsFormsApp1
             Member_Panel_2.BackColor = Color.LightGray;
             Member_Panel_2.ForeColor = Color.White;
 
-            Member_Label_2.Location = new Point(165, 15);
-            Member_Label_2.Size = new Size(265, 50);
-            Member_Label_2.Text = "결제 정보 확인";
-            Member_Label_2.BackColor = Color.DimGray;
-            Member_Label_2.TextAlign = ContentAlignment.TopCenter;
-            Member_Label_2.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
+            re.Plb(Member_Panel_2, " Member_Label_2", "결제 정보 확인", 245, 50, 170, 15, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 30, FontStyle.Bold);
+            //Member_Label_2.Location = new Point(165, 15);
+            //Member_Label_2.Size = new Size(265, 50);
+            //Member_Label_2.Text = "결제 정보 확인";
+            //Member_Label_2.BackColor = Color.DimGray;
+            //Member_Label_2.TextAlign = ContentAlignment.TopCenter;
+            //Member_Label_2.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
 
             Member_Label_3.Location = new Point(40, 90);
             Member_Label_3.Size = new Size(510, 320);
@@ -144,7 +145,6 @@ namespace WindowsFormsApp1
             Member_Label_3.ForeColor = Color.Black;
             Member_Label_3.TextAlign = ContentAlignment.TopCenter;
             Member_Label_3.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
-            Member_Label_3.Click += Member_button_1_Click;
 
             Member_button_7.DialogResult = DialogResult.OK;
             Member_button_7.Text = "현 금";
@@ -163,7 +163,7 @@ namespace WindowsFormsApp1
             Member_button_8.Click += Cancle_Btn_click;
 
             this.Controls.Add(Member_Panel_2);
-            Member_Panel_2.Controls.Add(Member_Label_2);
+            //Member_Panel_2.Controls.Add(Member_Label_2);
             Member_Panel_2.Controls.Add(Member_Label_3);
             Member_Panel_2.Controls.Add(Member_button_7);
             Member_Panel_2.Controls.Add(Member_button_8);
@@ -171,35 +171,35 @@ namespace WindowsFormsApp1
         }
         public void Member_button_1_Click(object o, EventArgs a)
         {
-            Member_Label_3.Text = "\r\n잔여시간 TEST중\r\n\r\n충전시간  01:00\r\n\r\n합계금액 1,000원";
+            Member_Label_3.Text = "\n잔여시간 TEST중\n\n충전시간  01:00\n\n합계금액 1,000원";
         }
         public void Member_button_2_Click(object o, EventArgs a)
         {
-            Member_Label_3.Text = "\r\n잔여시간 TEST중\r\n\r\n충전시간  02:00\r\n\r\n합계금액 2,000원";
+            Member_Label_3.Text = "\n잔여시간 TEST중\n\n충전시간  02:00\n\n합계금액 2,000원";
         }
         public void Member_button_3_Click(object o, EventArgs a)
         {
-            Member_Label_3.Text = "\r\n잔여시간 TEST중\r\n\r\n충전시간  03:00\r\n\r\n합계금액 3,000원";
+            Member_Label_3.Text = "\n잔여시간 TEST중\n\n충전시간  03:00\n\n합계금액 3,000원";
         }
         public void Member_button_4_Click(object o, EventArgs a)
         {
-            Member_Label_3.Text = "\r\n잔여시간 TEST중\r\n\r\n충전시간  05:30\r\n\r\n합계금액 5,000원";
+            Member_Label_3.Text = "\n잔여시간 TEST중\n\n충전시간  05:30\n\n합계금액 5,000원";
         }
         public void Member_button_5_Click(object o, EventArgs a)
         {
-            Member_Label_3.Text = "\r\n잔여시간 TEST중\r\n\r\n충전시간  11:00\r\n\r\n합계금액 10,000원";
+            Member_Label_3.Text = "\n잔여시간 TEST중\n\n충전시간  11:00\n\n합계금액 10,000원";
         }
         public void Member_button_6_Click(object o, EventArgs a)
         {
-            Member_Label_3.Text = "\r\n잔여시간 TEST중\r\n\r\n충전시간  35:00\r\n\r\n합계금액 30,000원";
+            Member_Label_3.Text = "\n잔여시간 TEST중\n\n충전시간  35:00\n\n합계금액 30,000원";
         }
         private void Charge_Btn_click(object o, EventArgs a)
         {
             Button Member_button_7;
             Member_button_7 = (Button)o;
-
+            this.Close();
             Time_Success mb = new Time_Success();
-            mb.ShowDialog();
+            mb.Show();
         }
 
         private void Cancle_Btn_click(object o, EventArgs e)

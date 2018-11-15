@@ -75,22 +75,23 @@ namespace WindowsFormsApp1
 
             logo.Image = (Bitmap)WindowsFormsApp1.Properties.Resources.ResourceManager.GetObject("schubert");
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
-            logo.Size = new Size(50, 50);
-            logo.Location = new Point(700, 10);
+            logo.Size = new Size(40, 40);
+            logo.Location = new Point(740, 15);
 
-            re.Plb(panel, "sbt", "Schubert PC", 200, 100, 760, 18, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 22, FontStyle.Bold);
+            re.Plb(panel, "sbt", "Schubert PC", 200, 100, 780, 18, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 20, FontStyle.Bold);
             //sbt.Text = "Schubert PC";
             //sbt.Size = new Size(200, 100);
             //sbt.Location = new Point(760, 18);
             //sbt.Font = new Font(FontFamily.GenericSansSerif, 22F, FontStyle.Bold);
             //sbt.ForeColor = Color.White;
 
-            re.Plb(panel, "test", "test 테스트 중입니다!!", 300, 100, 380, 15, Color.DimGray, Color.Yellow, FontFamily.GenericSansSerif, 25, FontStyle.Bold);
+            re.Plb(panel, "Rest_seat", "빈 자리 67좌석", 170, 40, 360, 15, Color.OrangeRed, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
             //test.Text = "test 테스트 중입니다!!";
             //test.Size = new Size(300, 100);
             //test.Location = new Point(380, 15);
             //test.Font = new Font(FontFamily.GenericSansSerif, 25F, FontStyle.Bold);
             //test.ForeColor = Color.Yellow;
+            re.Plb(panel, "Time", "현재 시간 09:15", 185, 40, 545, 15, Color.Orange, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
 
             Controls.Add(panel);
             panel.Controls.Add(Charge_Btn);
@@ -128,7 +129,6 @@ namespace WindowsFormsApp1
 
             Controls.Add(panel);
             Seat();
-
         }
         public void Panel3()
         {
@@ -155,7 +155,7 @@ namespace WindowsFormsApp1
             //panel.Controls.Add(notice);
         }
         //Button Seat_Btn = new Button();
-        private void Seat()
+        public void Seat()
         {
             int count = 1;
 
@@ -167,8 +167,11 @@ namespace WindowsFormsApp1
                     Seat_Btn.Size = new Size(85, 60);
                     Seat_Btn.Location = new Point((94 * j) + 19, (69 * i) + 90);
                     Seat_Btn.Name = string.Format("btn{0}", count++);
-                    Seat_Btn.BackColor = Color.DimGray;
-
+                    if (Seat_Btn.Name == "btn1" || Seat_Btn.Name == "btn2" || Seat_Btn.Name == "btn15" || Seat_Btn.Name == "btn19" || Seat_Btn.Name == "btn34")
+                    {
+                        Seat_Btn.BackColor = Color.LimeGreen;
+                    }
+                    else Seat_Btn.BackColor = Color.DimGray;
                     //arrayList.Add(Seat_Btn);
 
                     panel.Controls.Add(Seat_Btn);
@@ -176,6 +179,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
         private void Seat_clik(object o, EventArgs e)
         {
             //for (int i = 0; i < arrayList.Count; i++)
@@ -186,12 +190,11 @@ namespace WindowsFormsApp1
             Seat_Btn = (Button)o;
             //MessageBox.Show(Seat_Btn.Name);
             Member_Time mt = new Member_Time();
-            if (Seat_Btn.Name == "btn1")
+            if (Seat_Btn.BackColor == Color.LimeGreen)
             {
                 if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
                 mt.Show();
             }
-
         }
     }
 }
