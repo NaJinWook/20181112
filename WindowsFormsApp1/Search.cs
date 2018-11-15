@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         Panel panel;
         TextBox Content;
         ListViewItem item1, item2, item3, item4;
+        ListView Search_View = new ListView();
         Reuse re = new Reuse();
 
         public Search()
@@ -22,6 +23,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             ClientSize = new Size(610, 300);
             MaximizeBox = false;
+            this.Search_View.Scrollable = false;
             Load += Search_Load;
         }
 
@@ -30,7 +32,6 @@ namespace WindowsFormsApp1
             DesktopLocation = new Point(550, 310);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.KeyPreview = true;
             Panel();
         }
 
@@ -41,14 +42,14 @@ namespace WindowsFormsApp1
             //Label ID_label = new Label();
             Button Search_Btn = new Button();
             Button Remove_Btn = new Button();
-            ListView Search_View = new ListView();
+            
 
             panel.Location = new Point(10, 10);
             panel.Size = new Size(590, 280);
             panel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             panel.BackColor = Color.DimGray;
 
-            re.Plb(panel, "ID_label", "회원 ID / 이름", 165, 30, 15, 30, Color.DimGray, Color.White,FontFamily.GenericSansSerif, 20, FontStyle.Bold);
+            re.Plb(panel, "ID_label", "회원 ID / 이름", 165, 30, 15, 30, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 20, FontStyle.Bold);
             //ID_label.Text = "회원 ID / 이름";
             //ID_label.Size = new Size(165, 30);
             //ID_label.Location = new Point(15, 30);
@@ -180,33 +181,6 @@ namespace WindowsFormsApp1
             item4.SubItems.Clear();
             Content.Text = "";
             Content.Focus();
-        }
-
-        public void Member_login_esc(object o, KeyEventArgs k)
-        {
-            if (k.KeyCode == Keys.Escape)
-            {
-                item1.SubItems.Clear();
-                item2.SubItems.Clear();
-                item3.SubItems.Clear();
-                item4.SubItems.Clear();
-                Content.Text = "";
-                Content.Focus();
-            }
-        }
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Escape)
-            {
-                item1.SubItems.Clear();
-                item2.SubItems.Clear();
-                item3.SubItems.Clear();
-                item4.SubItems.Clear();
-                Content.Text = "";
-                Content.Focus();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

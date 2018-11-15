@@ -16,22 +16,25 @@ namespace WindowsFormsApp1
         Panel panel = new Panel();
         ListViewItem item1, item2, item3, item4;
         Reuse re = new Reuse();
+        ListView Search_View = new ListView();
         public Member_login()
         {
             InitializeComponent();
             ClientSize = new Size(1000, 600);
             MaximizeBox = false;
+            this.Search_View.Scrollable = false;
             Load += Member_login_Load;
+
         }
 
         private void Member_login_Load(object sender, EventArgs e)
         {
             if (Application.OpenForms["Member"] is Form Member) Member.Close();
             if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
-            this.KeyPreview = true;
+            
             DesktopLocation = new Point(350, 200);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedSingle;  
             Panel();
         }
 
@@ -42,7 +45,6 @@ namespace WindowsFormsApp1
             //Label ID_label = new Label();
             Button Search_Btn = new Button();
             Button Remove_Btn = new Button();
-            ListView Search_View = new ListView();
 
             panel.Location = new Point(10, 10);
             panel.Size = new Size(980, 580);
@@ -70,7 +72,7 @@ namespace WindowsFormsApp1
             Content.Font = new Font(FontFamily.GenericSansSerif, 40.0F, FontStyle.Bold);
 
             Search_Btn.Text = "검색";
-            Search_Btn.Size = new Size(100, 73);
+            Search_Btn.Size = new Size(105, 73);
             Search_Btn.Location = new Point(750, 57);
             Search_Btn.Font = new Font(FontFamily.GenericSansSerif, 25.0F, FontStyle.Bold);
             Search_Btn.BackColor = Color.DimGray;
@@ -78,8 +80,8 @@ namespace WindowsFormsApp1
             Search_Btn.Click += Search_Btn_click;
 
             Remove_Btn.Text = "지우기";
-            Remove_Btn.Size = new Size(100, 73);
-            Remove_Btn.Location = new Point(855, 57);
+            Remove_Btn.Size = new Size(105, 73);
+            Remove_Btn.Location = new Point(857, 57);
             Remove_Btn.Font = new Font(FontFamily.GenericSansSerif, 25.0F, FontStyle.Bold);
             Remove_Btn.BackColor = Color.DimGray;
             Remove_Btn.ForeColor = Color.White;
@@ -183,7 +185,7 @@ namespace WindowsFormsApp1
                     item3.SubItems.Add("hosung1000");
                     item4.SubItems.Add("4");
                     item4.SubItems.Add("천호천");
-                    item4.SubItems.Add("how0841"); 
+                    item4.SubItems.Add("how0841");
                 }
             }
         }
@@ -201,34 +203,6 @@ namespace WindowsFormsApp1
             item4.SubItems.Clear();
             Content.Text = "";
             Content.Focus();
-        }
-
-        // 아래는 Esc키누르면 초기화 시켜주는 부분.
-        public void Member_login_esc(object o, KeyEventArgs k)
-        {
-            if(k.KeyCode == Keys.Escape)
-            {
-                item1.SubItems.Clear();
-                item2.SubItems.Clear();
-                item3.SubItems.Clear();
-                item4.SubItems.Clear();
-                Content.Text = "";
-                Content.Focus();
-            }
-        }
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Escape)
-            {
-                item1.SubItems.Clear();
-                item2.SubItems.Clear();
-                item3.SubItems.Clear();
-                item4.SubItems.Clear();
-                Content.Text = "";
-                Content.Focus();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

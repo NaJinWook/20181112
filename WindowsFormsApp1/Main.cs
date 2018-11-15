@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         Panel panel;
         ArrayList arrayList;
         Button Seat_Btn;
+        Label Seat_num;
         Reuse re = new Reuse();
         public Main()
         {
@@ -128,7 +129,9 @@ namespace WindowsFormsApp1
             panel.BackColor = Color.Gray;
 
             Controls.Add(panel);
+            Seat_Num();
             Seat();
+
         }
         public void Panel3()
         {
@@ -200,8 +203,9 @@ namespace WindowsFormsApp1
                     {
                         Seat_Btn.Text = "천호천";
                     }
-                    Seat_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
+                    Seat_Btn.Font = new Font(FontFamily.GenericSansSerif, 16.0F, FontStyle.Bold);
                     Seat_Btn.ForeColor = Color.White;
+                    Seat_Btn.TextAlign = ContentAlignment.BottomRight;
 
                     panel.Controls.Add(Seat_Btn);
                     Seat_Btn.Click += Seat_clik;
@@ -211,7 +215,7 @@ namespace WindowsFormsApp1
 
         private void Seat_clik(object o, EventArgs e)
         {
-            
+
             string Users = "";
             //for (int i = 0; i < arrayList.Count; i++)
             //{
@@ -232,6 +236,26 @@ namespace WindowsFormsApp1
                 if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
                 mt.Show();
 
+            }
+        }
+
+        public void Seat_Num()
+        {
+            int count = 1;
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Seat_num = new Label();
+                    Seat_num.Size = new Size(30, 25);
+                    Seat_num.Location = new Point((94 * j) + 25, (69 * i) + 96);
+                    Seat_num.Text = string.Format("{0}", count++);
+                    Seat_num.ForeColor = Color.White;
+                    Seat_num.BackColor = Color.Black;
+                    Seat_num.TextAlign = ContentAlignment.MiddleCenter;
+                    Seat_num.Font = new Font(FontFamily.GenericSansSerif, 10.0F, FontStyle.Bold);
+                    panel.Controls.Add(Seat_num);
+                }
             }
         }
     }

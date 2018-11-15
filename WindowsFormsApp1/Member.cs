@@ -54,10 +54,10 @@ namespace WindowsFormsApp1
         {
             Button Charge_Btn;
             Charge_Btn = (Button)o;
-            
+
             Member_login ml = new Member_login();
             ml.Show();
-            
+
         }
         private void NonMember_click(object o, EventArgs e)
         {

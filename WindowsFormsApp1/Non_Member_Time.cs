@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             ClientSize = new Size(1220, 603);
-            BackColor = Color.DimGray; 
+            BackColor = Color.DimGray;
             Load += Non_Member_Time_Load;
         }
 
@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
             DesktopLocation = new Point(350, 200);
             Non_Member_Panel_1();
             Non_Member_Panel_2();
-        }       
+        }
 
         public void Non_Member_Panel_1()
         {
