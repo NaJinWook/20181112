@@ -14,14 +14,13 @@ namespace WindowsFormsApp1
     {
         Reuse re = new Reuse();
         Label Member_Label_3;
-        public Member_Time()
+        string User_save;
+        public Member_Time(string Users)
         {
             InitializeComponent();
             ClientSize = new Size(1220, 603);
-            BackColor = Color.DimGray;
-            Member_Panel_1();
-            Member_Panel_2();
             Load += Member_Time_Load;
+            User_save = Users;
         }
 
         private void Member_Time_Load(object sender, EventArgs e)
@@ -29,6 +28,18 @@ namespace WindowsFormsApp1
             DesktopLocation = new Point(350, 200);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Member_Panel();
+        }
+
+        public void Member_Panel()
+        {
+            Panel Member_Panel = new Panel();
+            Member_Panel.Size = new Size(1220, 603);
+            Member_Panel.Location = new Point(0, 0);
+            Member_Panel.BackColor = Color.DimGray;
+            Member_Panel_1();
+            Member_Panel_2();
+            this.Controls.Add(Member_Panel);
         }
 
         public void Member_Panel_1()
@@ -122,6 +133,7 @@ namespace WindowsFormsApp1
             Panel Member_Panel_2 = new Panel();
             //Label Member_Label_2 = new Label();
             Member_Label_3 = new Label();
+            Label User = new Label();
             Button Member_button_7 = new Button();
             Button Member_button_8 = new Button();
 
@@ -146,6 +158,15 @@ namespace WindowsFormsApp1
             Member_Label_3.TextAlign = ContentAlignment.TopCenter;
             Member_Label_3.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
 
+            //re.Plb(Member_Panel_2, "User", "", 200, 100, 40, 40, Color.Black, Color.White, FontFamily.GenericSansSerif, 30, FontStyle.Bold);
+            User.Text = string.Format(User_save + " 회원님");
+            User.Size = new Size(510, 60);
+            User.Location = new Point(40, 90);
+            User.BackColor = Color.WhiteSmoke;
+            User.ForeColor = Color.Black;
+            User.TextAlign = ContentAlignment.MiddleCenter;
+            User.Font = new Font(FontFamily.GenericSansSerif, 30, FontStyle.Bold);
+
             Member_button_7.DialogResult = DialogResult.OK;
             Member_button_7.Text = "현 금";
             Member_button_7.Size = new Size(252, 130);
@@ -164,6 +185,7 @@ namespace WindowsFormsApp1
 
             this.Controls.Add(Member_Panel_2);
             //Member_Panel_2.Controls.Add(Member_Label_2);
+            Member_Panel_2.Controls.Add(User);
             Member_Panel_2.Controls.Add(Member_Label_3);
             Member_Panel_2.Controls.Add(Member_button_7);
             Member_Panel_2.Controls.Add(Member_button_8);

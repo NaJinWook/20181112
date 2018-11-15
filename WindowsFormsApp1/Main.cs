@@ -133,12 +133,18 @@ namespace WindowsFormsApp1
         public void Panel3()
         {
             panel = new Panel();
+            PictureBox map = new PictureBox();
             //Label notice = new Label();
 
             panel.Location = new Point(990, 10);
             panel.Size = new Size(220, 583);
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.BackColor = Color.Gray;
+
+            map.Image = (Bitmap)WindowsFormsApp1.Properties.Resources.ResourceManager.GetObject("map");
+            map.SizeMode = PictureBoxSizeMode.StretchImage;
+            map.Size = new Size(210, 210);
+            map.Location = new Point(5, 25);
 
             re.Plb(panel, "notice", "오늘도 저희 PC방을\n찾아오신 고객님께\n감사드립니다." +
                         "\n\nSchubert PC는\n유료 게임 시간 차감을\n별도로 하지 않습니다." +
@@ -152,6 +158,7 @@ namespace WindowsFormsApp1
             //notice.ForeColor = Color.White;
 
             Controls.Add(panel);
+            panel.Controls.Add(map);
             //panel.Controls.Add(notice);
         }
         //Button Seat_Btn = new Button();
@@ -173,6 +180,28 @@ namespace WindowsFormsApp1
                     }
                     else Seat_Btn.BackColor = Color.DimGray;
                     //arrayList.Add(Seat_Btn);
+                    if (Seat_Btn.Name == "btn1")
+                    {
+                        Seat_Btn.Text = "나진욱";
+                    }
+                    else if (Seat_Btn.Name == "btn2")
+                    {
+                        Seat_Btn.Text = "천호성";
+                    }
+                    else if (Seat_Btn.Name == "btn15")
+                    {
+                        Seat_Btn.Text = "나훈아";
+                    }
+                    else if (Seat_Btn.Name == "btn19")
+                    {
+                        Seat_Btn.Text = "천진반";
+                    }
+                    else if (Seat_Btn.Name == "btn34")
+                    {
+                        Seat_Btn.Text = "천호천";
+                    }
+                    Seat_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
+                    Seat_Btn.ForeColor = Color.White;
 
                     panel.Controls.Add(Seat_Btn);
                     Seat_Btn.Click += Seat_clik;
@@ -182,6 +211,8 @@ namespace WindowsFormsApp1
 
         private void Seat_clik(object o, EventArgs e)
         {
+            
+            string Users = "";
             //for (int i = 0; i < arrayList.Count; i++)
             //{
             //    Button button = (Button)arrayList[i];
@@ -189,11 +220,18 @@ namespace WindowsFormsApp1
             //}
             Seat_Btn = (Button)o;
             //MessageBox.Show(Seat_Btn.Name);
-            Member_Time mt = new Member_Time();
+            //if (Seat_Btn.BackColor == Color.LimeGreen)
+            //{
+            //    if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
+            //    mt.Show();
+            //}
             if (Seat_Btn.BackColor == Color.LimeGreen)
             {
+                Users = Seat_Btn.Text;
+                Member_Time mt = new Member_Time(Users);
                 if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
                 mt.Show();
+
             }
         }
     }

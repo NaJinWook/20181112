@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
             //Member_Label_2.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
 
             Member_button_1.DialogResult = DialogResult.OK;
-            Member_button_1.Text = "1,000원\n(적립불가)\n충전 시간 01:00";
+            Member_button_1.Text = "1,000원\n(적립불가)\n충전 시간 00:50";
             Member_button_1.Size = new Size(200, 140);
             Member_button_1.Location = new Point(90, 90);
             Member_button_1.BackColor = Color.Gray;
@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
             Member_button_1.Click += Member_button_1_Click;
 
             Member_button_2.DialogResult = DialogResult.OK;
-            Member_button_2.Text = "2,000원\n(적립불가)\n충전 시간 02:00";
+            Member_button_2.Text = "2,000원\n(적립불가)\n충전 시간 01:40";
             Member_button_2.Size = new Size(200, 140);
             Member_button_2.Location = new Point(310, 90);
             Member_button_2.BackColor = Color.Gray;

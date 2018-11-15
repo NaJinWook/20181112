@@ -64,6 +64,8 @@ namespace WindowsFormsApp1
             lb.ForeColor = fcolor;
             lb.Font = new Font(fontfamily, size, fontStyle);
             panel.Controls.Add(lb);
+            lb.BringToFront();
+
         }
     }
 }

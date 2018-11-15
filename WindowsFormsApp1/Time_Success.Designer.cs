@@ -36,12 +36,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Time_Success";
-            this.Text = "Time_Success";
+            this.Text = "결제 완료";
             this.Load += new System.EventHandler(this.Time_Success_Load);
             this.ResumeLayout(false);
 
         }
-
         #endregion
     }
 }
