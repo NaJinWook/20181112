@@ -12,6 +12,11 @@ namespace WindowsFormsApp1
 {
     public partial class Search : Form
     {
+        Panel panel;
+        TextBox Content;
+        ListViewItem item1, item2, item3, item4;
+        Reuse re = new Reuse();
+
         public Search()
         {
             InitializeComponent();
@@ -22,19 +27,17 @@ namespace WindowsFormsApp1
 
         private void Search_Load(object sender, EventArgs e)
         {
-            DesktopLocation = new Point(300, 200);
+            DesktopLocation = new Point(550, 310);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Panel();
         }
-        Panel panel;
-        TextBox Content;
-        ListViewItem item1, item2, item3, item4;
+
         public void Panel()
         {
             panel = new Panel();
-            Label ID_label = new Label();
             Content = new TextBox();
+            //Label ID_label = new Label();
             Button Search_Btn = new Button();
             Button Remove_Btn = new Button();
             ListView Search_View = new ListView();
@@ -44,11 +47,12 @@ namespace WindowsFormsApp1
             panel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             panel.BackColor = Color.DimGray;
 
-            ID_label.Text = "회원 ID / 이름";
-            ID_label.Size = new Size(165, 30);
-            ID_label.Location = new Point(15, 30);
-            ID_label.ForeColor = Color.White;
-            ID_label.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
+            re.Plb(panel, "ID_label", "회원 ID / 이름", 165, 30, 15, 30, Color.DimGray, Color.White,FontFamily.GenericSansSerif, 20, FontStyle.Bold);
+            //ID_label.Text = "회원 ID / 이름";
+            //ID_label.Size = new Size(165, 30);
+            //ID_label.Location = new Point(15, 30);
+            //ID_label.ForeColor = Color.White;
+            //ID_label.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
 
             Content.Name = "Content";
             Content.Text = "";
@@ -110,7 +114,7 @@ namespace WindowsFormsApp1
             Search_View.Items.AddRange(new ListViewItem[] { item1, item2, item3, item4 });
 
             Controls.Add(panel);
-            panel.Controls.Add(ID_label);
+            //panel.Controls.Add(ID_label);
             panel.Controls.Add(Content);
             panel.Controls.Add(Search_Btn);
             panel.Controls.Add(Remove_Btn);

@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Time_Success : Form
     {
+        Reuse re = new Reuse();
         public Time_Success()
         {
             InitializeComponent();

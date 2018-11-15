@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
     public partial class Member_login : Form
     {
         TextBox Content;
-        Panel panel;
+        Panel panel = new Panel();
         ListViewItem item1, item2, item3, item4;
         public Member_login()
         {
@@ -25,7 +25,9 @@ namespace WindowsFormsApp1
 
         private void Search_Load(object sender, EventArgs e)
         {
-            DesktopLocation = new Point(100, 100);
+            if (Application.OpenForms["Member"] is Form Member) Member.Close();
+            if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
+            DesktopLocation = new Point(350, 200);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Panel();
@@ -33,10 +35,9 @@ namespace WindowsFormsApp1
 
         public void Panel()
         {
-            panel = new Panel();
+            Content = new TextBox();
             Button Main_Btn = new Button();
             Label ID_label = new Label();
-            Content = new TextBox();
             Button Search_Btn = new Button();
             ListView Search_View = new ListView();
 
@@ -169,8 +170,8 @@ namespace WindowsFormsApp1
         }
         public void Main_Btn_click(object o, EventArgs a)
         {
-            Main m = new Main();
-            m.Show();
+            if (Application.OpenForms["Main"] is Form Main) Main.Visible = true;
+            this.Close();
         }
     }
 }

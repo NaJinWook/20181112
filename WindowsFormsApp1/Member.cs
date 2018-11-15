@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
 
         private void Member_Load(object sender, EventArgs e)
         {
-            DesktopLocation = new Point(130, 200);
+            DesktopLocation = new Point(380, 310);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
 
@@ -34,7 +34,6 @@ namespace WindowsFormsApp1
             Member_Btn.Size = new Size(90, 60);
             Member_Btn.Location = new Point(30, 30);
             Controls.Add(Member_Btn);
-
             Member_Btn.BackColor = Color.Green;
             Member_Btn.ForeColor = Color.White;
             Member_Btn.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
@@ -55,9 +54,10 @@ namespace WindowsFormsApp1
         {
             Button Charge_Btn;
             Charge_Btn = (Button)o;
-
+            
             Member_login ml = new Member_login();
-            ml.ShowDialog();
+            ml.Show();
+            
         }
         private void NonMember_click(object o, EventArgs e)
         {

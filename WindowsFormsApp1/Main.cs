@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
         private void Main_Load(object sender, EventArgs e)
         {
             arrayList = new ArrayList();
-            DesktopLocation = new Point(100, 100);
+            DesktopLocation = new Point(350, 200);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel();
 
@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
         {
             panel = new Panel();
             panel.Location = new Point(10, 10);
-            panel.Size = new Size(1220, 620);
+            panel.Size = new Size(1220, 603);
             panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel.BackColor = Color.DarkGray;
             Panel1();
@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
             Info_Btn.Click += Info_Btn_click;
 
 
-            //logo.Image = Bitmap.FromFile(@"C:\schubert.png");
+            logo.Image = (Bitmap)WindowsFormsApp1.Properties.Resources.ResourceManager.GetObject("schubert");
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
             logo.Size = new Size(50, 50);
             logo.Location = new Point(700, 10);
@@ -106,7 +106,7 @@ namespace WindowsFormsApp1
             Charge_Btn = (Button)o;
 
             Member mb = new Member();
-            mb.ShowDialog();
+            mb.Show();
         }
         private void Info_Btn_click(object o, EventArgs a)
         {
@@ -141,8 +141,8 @@ namespace WindowsFormsApp1
             panel.BackColor = Color.Gray;
 
             re.Plb(panel, "notice", "오늘도 저희 PC방을\n찾아오신 고객님께\n감사드립니다." +
-                "\n\nSchubert PC는\n유료 게임 시간 차감을\n별도로 하지 않습니다." +
-                "\n\n문제 발생시 카운터로\n문의해주세요.", 300, 400, 10, 273, Color.Gray, Color.White, FontFamily.GenericSansSerif, 18, FontStyle.Bold);
+                        "\n\nSchubert PC는\n유료 게임 시간 차감을\n별도로 하지 않습니다." +
+                        "\n\n문제 발생시 카운터로\n문의해주세요.", 300, 400, 10, 273, Color.Gray, Color.White, FontFamily.GenericSansSerif, 18, FontStyle.Bold);
             //notice.Text = "오늘도 저희 PC방을\n찾아오신 고객님께\n감사드립니다." +
             //    "\n\nSchubert PC는\n유료 게임 시간 차감을\n별도로 하지 않습니다." +
             //    "\n\n문제 발생시 카운터로\n문의해주세요.";
@@ -176,7 +176,6 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
         private void Seat_clik(object o, EventArgs e)
         {
             //for (int i = 0; i < arrayList.Count; i++)
@@ -189,6 +188,7 @@ namespace WindowsFormsApp1
             Member_Time mt = new Member_Time();
             if (Seat_Btn.Name == "btn1")
             {
+                if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
                 mt.Show();
             }
 

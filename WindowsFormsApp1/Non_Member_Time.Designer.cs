@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Non_Member_Time";
-            this.Text = "Non_Member_Time";
+            this.Text = "비회원 충전";
             this.Load += new System.EventHandler(this.Non_Member_Time_Load);
             this.ResumeLayout(false);
 

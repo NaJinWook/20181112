@@ -43,7 +43,6 @@ namespace WindowsFormsApp1
         public void lb(Form form, string name, string text, int sX, int sY, int pX, int pY, Color bcolor, Color fcolor, FontFamily fontfamily, int size, FontStyle fontStyle)
         {                   //폼이냐 패널이냐, 이름, 내용, 가로사이즈, 세로사이즈, X좌표, Y좌표, 바탕색, 글씨색, FontFamily선언, 글씨크기, 글꼴스타일)
             Label lb = new Label();
-            lb.Cursor = Cursors.Hand;
             lb.Name = name;
             lb.Text = text;
             lb.Size = new Size(sX, sY);
@@ -57,7 +56,6 @@ namespace WindowsFormsApp1
         public void Plb(Panel panel, string name, string text, int sX, int sY, int pX, int pY, Color bcolor, Color fcolor, FontFamily fontfamily, int size, FontStyle fontStyle)
         {                   //폼이냐 패널이냐, 이름, 내용, 가로사이즈, 세로사이즈, X좌표, Y좌표, 바탕색, 글씨색, FontFamily선언, 글씨크기, 글꼴스타일)
             Label lb = new Label();
-            lb.Cursor = Cursors.Hand;
             lb.Name = name;
             lb.Text = text;
             lb.Size = new Size(sX, sY);
