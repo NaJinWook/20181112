@@ -169,22 +169,26 @@ namespace WindowsFormsApp1
                     Seat_Btn.Name = string.Format("btn{0}", count++);
                     Seat_Btn.BackColor = Color.DimGray;
 
-                    arrayList.Add(Seat_Btn);
+                    //arrayList.Add(Seat_Btn);
 
                     panel.Controls.Add(Seat_Btn);
+                    Seat_Btn.Click += Seat_clik;
                 }
             }
-            Seat_Btn.Click += Seat_clik;
+            
 
         }
 
         private void Seat_clik(object o, EventArgs e)
         {
-            for (int i = 0; i < arrayList.Count; i++)
-            {
-                Button button = (Button)arrayList[i];
-                MessageBox.Show(button.Name);
-            }
+            //for (int i = 0; i < arrayList.Count; i++)
+            //{
+            //    Button button = (Button)arrayList[i];
+            //    MessageBox.Show(button.Name);
+            //}
+            Seat_Btn = (Button)o;
+            MessageBox.Show(Seat_Btn.Name);
+            
         }
     }
 }
