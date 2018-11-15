@@ -175,8 +175,6 @@ namespace WindowsFormsApp1
                     Seat_Btn.Click += Seat_clik;
                 }
             }
-            
-
         }
 
         private void Seat_clik(object o, EventArgs e)
@@ -187,8 +185,13 @@ namespace WindowsFormsApp1
             //    MessageBox.Show(button.Name);
             //}
             Seat_Btn = (Button)o;
-            MessageBox.Show(Seat_Btn.Name);
-            
+            //MessageBox.Show(Seat_Btn.Name);
+            Member_Time mt = new Member_Time();
+            if (Seat_Btn.Name == "btn1")
+            {
+                mt.Show();
+            }
+
         }
     }
 }
