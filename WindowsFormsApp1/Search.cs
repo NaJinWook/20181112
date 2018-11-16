@@ -123,7 +123,7 @@ namespace WindowsFormsApp1
         {
             foreach (Control ctr in panel.Controls)
             {
-                if (Content.Text == "나진욱" || Content.Text == "나진" || Content.Text == "진욱")
+                if (Content.Text == "나진욱" || Content.Text == "나진" || Content.Text == "진욱" || Content.Text == "skwlsdnr" || Content.Text == "skwlsdnr94")
                 {
                     item1.SubItems.Add("1");
                     item1.SubItems.Add("나진욱");
