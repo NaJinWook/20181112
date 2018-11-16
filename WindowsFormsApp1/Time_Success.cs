@@ -18,8 +18,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
             ClientSize = new Size(1200, 620);
             BackColor = Color.DimGray;
-            Time_Success_Panel_1();
-            Time_Success_Panel_2();
             Load += Time_Success_Load;
         }
 
@@ -28,6 +26,9 @@ namespace WindowsFormsApp1
             DesktopLocation = new Point(350, 200);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Time_Success_Panel_2();
+            Time_Success_Panel_1();
+            
         }
 
         public void Time_Success_Panel_1()
@@ -71,10 +72,10 @@ namespace WindowsFormsApp1
 
             Time_Success_Label_2.Location = new Point(20, 20);
             Time_Success_Label_2.Size = new Size(1140, 390);
-            Time_Success_Label_2.Text = "";
+            Time_Success_Label_2.Text = "회원 이름(미구현)\n\n이용해주셔서 감사합니다.";
             Time_Success_Label_2.ForeColor = Color.Black;
             Time_Success_Label_2.BackColor = Color.White;
-            Time_Success_Label_2.TextAlign = ContentAlignment.TopCenter;
+            Time_Success_Label_2.TextAlign = ContentAlignment.MiddleCenter;
             Time_Success_Label_2.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
 
 

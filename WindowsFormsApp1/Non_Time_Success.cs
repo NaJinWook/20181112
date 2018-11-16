@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
             Non_Time_Success_Label_2.TextAlign = ContentAlignment.MiddleCenter;
             Non_Time_Success_Label_2.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
 
-            Non_Time_Success_Label_3.Text = "충전해주셔서 감사합니다";
+            Non_Time_Success_Label_3.Text = "이용해주셔서 감사합니다.";
             Non_Time_Success_Label_3.Location = new Point(20, 220);
             Non_Time_Success_Label_3.Size = new Size(1140, 270);
             Non_Time_Success_Label_3.ForeColor = Color.Black;
