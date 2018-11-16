@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
             Panel Time_Success_Panel_2 = new Panel();
             Button Time_Success_button_1 = new Button();
             Label Time_Success_Label_2 = new Label();
-
+            
 
             Time_Success_Panel_2.Location = new Point(10, 180);
             Time_Success_Panel_2.Size = new Size(1180, 430);
@@ -68,9 +68,10 @@ namespace WindowsFormsApp1
             Time_Success_Panel_2.BackColor = Color.LightGray;
             Time_Success_Panel_2.ForeColor = Color.White;
 
+
             Time_Success_Label_2.Location = new Point(20, 20);
             Time_Success_Label_2.Size = new Size(1140, 390);
-            Time_Success_Label_2.Text = "\r\n\r\n충전이 완료 되었습니다.\r\n\r\nTEST중(회원 / 비회원님)\r\nTEST중입니다.";
+            Time_Success_Label_2.Text = "";
             Time_Success_Label_2.ForeColor = Color.Black;
             Time_Success_Label_2.BackColor = Color.White;
             Time_Success_Label_2.TextAlign = ContentAlignment.TopCenter;

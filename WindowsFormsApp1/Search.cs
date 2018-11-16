@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
         {
             panel = new Panel();
             Content = new TextBox();
-            //Label ID_label = new Label();
+
             Button Search_Btn = new Button();
             Button Remove_Btn = new Button();
             
@@ -50,11 +50,6 @@ namespace WindowsFormsApp1
             panel.BackColor = Color.DimGray;
 
             re.Plb(panel, "ID_label", "회원 ID / 이름", 165, 30, 15, 30, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 20, FontStyle.Bold);
-            //ID_label.Text = "회원 ID / 이름";
-            //ID_label.Size = new Size(165, 30);
-            //ID_label.Location = new Point(15, 30);
-            //ID_label.ForeColor = Color.White;
-            //ID_label.Font = new Font(FontFamily.GenericSansSerif, 20.0F, FontStyle.Bold);
 
             Content.Name = "Content";
             Content.Text = "";
@@ -170,6 +165,12 @@ namespace WindowsFormsApp1
                     item3.SubItems.Add("34");
                     item3.SubItems.Add("천호천");
                     item3.SubItems.Add("how0841");
+                }
+                else if (Content.Text == "김" || Content.Text == "김주" || Content.Text == "주헌" || Content.Text == "김주헌")
+                {
+                    item1.SubItems.Add("3");
+                    item1.SubItems.Add("김주헌");
+                    item1.SubItems.Add("juhun450");
                 }
             }
         }

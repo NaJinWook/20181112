@@ -71,21 +71,22 @@ namespace WindowsFormsApp1
             Non_Time_Success_Panel_2.BackColor = Color.LightGray;
             Non_Time_Success_Panel_2.ForeColor = Color.White;
 
-
+            Random r = new Random();
+            int a = r.Next(1, 71);
             Non_Time_Success_Label_2.Location = new Point(20, 40);
             Non_Time_Success_Label_2.Size = new Size(1140, 180);
-            Non_Time_Success_Label_2.Text = "142번 고객님";
+            Non_Time_Success_Label_2.Text = a + "번 고객님";
             Non_Time_Success_Label_2.ForeColor = Color.Black;
             Non_Time_Success_Label_2.BackColor = Color.White;
             Non_Time_Success_Label_2.TextAlign = ContentAlignment.MiddleCenter;
             Non_Time_Success_Label_2.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
 
-            Non_Time_Success_Label_3.Text = input2;
+            Non_Time_Success_Label_3.Text = "충전해주셔서 감사합니다";
             Non_Time_Success_Label_3.Location = new Point(20, 220);
             Non_Time_Success_Label_3.Size = new Size(1140, 270);
             Non_Time_Success_Label_3.ForeColor = Color.Black;
             Non_Time_Success_Label_3.BackColor = Color.White;
-            Non_Time_Success_Label_3.TextAlign = ContentAlignment.MiddleCenter;
+            Non_Time_Success_Label_3.TextAlign = ContentAlignment.TopCenter;
             Non_Time_Success_Label_3.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
 
 
@@ -96,6 +97,9 @@ namespace WindowsFormsApp1
             Non_Time_Success_button_1.BackColor = Color.Black;
             Non_Time_Success_button_1.Font = new Font(FontFamily.GenericSansSerif, 30.0F, FontStyle.Bold);
             Non_Time_Success_button_1.Click += Main_Btn_click;
+            Non_Time_Success_button_1.TabStop = false;
+            Non_Time_Success_button_1.FlatStyle = FlatStyle.Flat;
+            Non_Time_Success_button_1.FlatAppearance.BorderSize = 0;
 
             this.Controls.Add(Non_Time_Success_Panel_2);
             Non_Time_Success_Panel_2.Controls.Add(Non_Time_Success_button_1);
@@ -109,5 +113,13 @@ namespace WindowsFormsApp1
             if (Application.OpenForms["Main"] is Form Main) Main.Visible = true;
             this.Close();
         }
+
+        public void random()
+        {
+            Random r = new Random();
+            int a = r.Next(1, 101);
+            Console.Write(a);
+        }
+
     }
 }

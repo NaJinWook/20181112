@@ -28,7 +28,6 @@ namespace WindowsFormsApp1
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             FormBorderStyle = FormBorderStyle.FixedSingle;
 
-            //re.Btn(this, "Member_Btn", "회원", 90, 60, 30, 30, Color.Green, Color.White, FontFamily.GenericSansSerif,20,FontStyle.Bold);
             Button Member_Btn = new Button();
             Member_Btn.Text = "회원";
             Member_Btn.Size = new Size(90, 60);

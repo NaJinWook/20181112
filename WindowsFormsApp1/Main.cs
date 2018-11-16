@@ -18,6 +18,8 @@ namespace WindowsFormsApp1
         Button Seat_Btn;
         Label Seat_num;
         Reuse re = new Reuse();
+        Label User_time;
+
         public Main()
         {
             InitializeComponent();
@@ -49,8 +51,6 @@ namespace WindowsFormsApp1
             Button Charge_Btn = new Button();
             Button Info_Btn = new Button();
             PictureBox logo = new PictureBox();
-            //Label sbt = new Label();
-            //Label test = new Label();
 
             panel.Location = new Point(10, 10);
             panel.Size = new Size(970, 75);
@@ -80,26 +80,13 @@ namespace WindowsFormsApp1
             logo.Location = new Point(740, 15);
 
             re.Plb(panel, "sbt", "Schubert PC", 200, 100, 780, 18, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 20, FontStyle.Bold);
-            //sbt.Text = "Schubert PC";
-            //sbt.Size = new Size(200, 100);
-            //sbt.Location = new Point(760, 18);
-            //sbt.Font = new Font(FontFamily.GenericSansSerif, 22F, FontStyle.Bold);
-            //sbt.ForeColor = Color.White;
-
-            re.Plb(panel, "Rest_seat", "빈 자리 67좌석", 170, 40, 360, 15, Color.OrangeRed, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
-            //test.Text = "test 테스트 중입니다!!";
-            //test.Size = new Size(300, 100);
-            //test.Location = new Point(380, 15);
-            //test.Font = new Font(FontFamily.GenericSansSerif, 25F, FontStyle.Bold);
-            //test.ForeColor = Color.Yellow;
-            re.Plb(panel, "Time", "현재 시간 09:15", 185, 40, 545, 15, Color.Orange, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
+            re.Plb(panel, "Rest_seat", "빈 자리 64좌석", 170, 40, 360, 15, Color.OrangeRed, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
+            re.Plb(panel, "Time", "현재 시간 12:15", 185, 40, 545, 15, Color.Orange, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
 
             Controls.Add(panel);
             panel.Controls.Add(Charge_Btn);
             panel.Controls.Add(Info_Btn);
             panel.Controls.Add(logo);
-            //panel.Controls.Add(sbt);
-            //panel.Controls.Add(test);
         }
 
         private void Charge_Btn_click(object o, EventArgs a)
@@ -137,14 +124,13 @@ namespace WindowsFormsApp1
         {
             panel = new Panel();
             PictureBox map = new PictureBox();
-            //Label notice = new Label();
 
             panel.Location = new Point(990, 10);
             panel.Size = new Size(220, 583);
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.BackColor = Color.Gray;
 
-            map.Image = (Bitmap)WindowsFormsApp1.Properties.Resources.ResourceManager.GetObject("map");
+            map.Image = (Bitmap)WindowsFormsApp1.Properties.Resources.ResourceManager.GetObject("minimap");
             map.SizeMode = PictureBoxSizeMode.StretchImage;
             map.Size = new Size(210, 210);
             map.Location = new Point(5, 25);
@@ -152,19 +138,10 @@ namespace WindowsFormsApp1
             re.Plb(panel, "notice", "오늘도 저희 PC방을\n찾아오신 고객님께\n감사드립니다." +
                         "\n\nSchubert PC는\n유료 게임 시간 차감을\n별도로 하지 않습니다." +
                         "\n\n문제 발생시 카운터로\n문의해주세요.", 300, 400, 10, 273, Color.Gray, Color.White, FontFamily.GenericSansSerif, 18, FontStyle.Bold);
-            //notice.Text = "오늘도 저희 PC방을\n찾아오신 고객님께\n감사드립니다." +
-            //    "\n\nSchubert PC는\n유료 게임 시간 차감을\n별도로 하지 않습니다." +
-            //    "\n\n문제 발생시 카운터로\n문의해주세요.";
-            //notice.Size = new Size(300, 400);
-            //notice.Location = new Point(10, 273);
-            //notice.Font = new Font(FontFamily.GenericSansSerif, 18.0F, FontStyle.Bold);
-            //notice.ForeColor = Color.White;
 
             Controls.Add(panel);
             panel.Controls.Add(map);
-            //panel.Controls.Add(notice);
         }
-        //Button Seat_Btn = new Button();
         public void Seat()
         {
             int count = 1;
@@ -177,7 +154,8 @@ namespace WindowsFormsApp1
                     Seat_Btn.Size = new Size(85, 60);
                     Seat_Btn.Location = new Point((94 * j) + 19, (69 * i) + 90);
                     Seat_Btn.Name = string.Format("btn{0}", count++);
-                    if (Seat_Btn.Name == "btn1" || Seat_Btn.Name == "btn2" || Seat_Btn.Name == "btn15" || Seat_Btn.Name == "btn19" || Seat_Btn.Name == "btn34")
+                    Seat_Btn.Cursor = Cursors.Hand;
+                    if (Seat_Btn.Name == "btn1" || Seat_Btn.Name == "btn2" || Seat_Btn.Name == "btn3" || Seat_Btn.Name == "btn15" || Seat_Btn.Name == "btn19" || Seat_Btn.Name == "btn34")
                     {
                         Seat_Btn.BackColor = Color.LimeGreen;
                     }
@@ -190,6 +168,10 @@ namespace WindowsFormsApp1
                     else if (Seat_Btn.Name == "btn2")
                     {
                         Seat_Btn.Text = "천호성";
+                    }
+                    else if (Seat_Btn.Name == "btn3")
+                    {
+                        Seat_Btn.Text = "김주헌";
                     }
                     else if (Seat_Btn.Name == "btn15")
                     {
@@ -214,28 +196,21 @@ namespace WindowsFormsApp1
         }
 
         private void Seat_clik(object o, EventArgs e)
-        {
-
+        {     
             string Users = "";
-            //for (int i = 0; i < arrayList.Count; i++)
-            //{
-            //    Button button = (Button)arrayList[i];
-            //    MessageBox.Show(button.Name);
-            //}
+            string Time = "";
+
             Seat_Btn = (Button)o;
-            //MessageBox.Show(Seat_Btn.Name);
-            //if (Seat_Btn.BackColor == Color.LimeGreen)
-            //{
-            //    if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
-            //    mt.Show();
-            //}
+            User_Info();
+
             if (Seat_Btn.BackColor == Color.LimeGreen)
             {
-                Users = Seat_Btn.Text;
-                Member_Time mt = new Member_Time(Users);
+                Time = User_time.Text;
+                Users = Seat_Btn.Text;  
+                Member_Time mt = new Member_Time(Users, Time);
+
                 if (Application.OpenForms["Main"] is Form Main) Main.Visible = false;
                 mt.Show();
-
             }
         }
 
@@ -256,6 +231,35 @@ namespace WindowsFormsApp1
                     Seat_num.Font = new Font(FontFamily.GenericSansSerif, 10.0F, FontStyle.Bold);
                     panel.Controls.Add(Seat_num);
                 }
+            }
+        }
+
+        public void User_Info()
+        {
+            User_time = new Label();
+            if (Seat_Btn.Name == "btn1")
+            {
+                User_time.Text = "잔여 시간    00:34";
+            }
+            else if(Seat_Btn.Name == "btn2")
+            {
+                User_time.Text = "잔여 시간    00:27";
+            }
+            else if (Seat_Btn.Name == "btn3")
+            {
+                User_time.Text = "잔여 시간    11:23";
+            }
+            else if (Seat_Btn.Name == "btn15")
+            {
+                User_time.Text = "잔여 시간    16:37";
+            }
+            else if (Seat_Btn.Name == "btn19")
+            {
+                User_time.Text = "잔여 시간    07:03";
+            }
+            else if (Seat_Btn.Name == "btn34")
+            {
+                User_time.Text = "잔여 시간    36:47";
             }
         }
     }
