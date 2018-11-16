@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
 
             re.Plb(panel, "sbt", "Schubert PC", 200, 100, 780, 18, Color.DimGray, Color.White, FontFamily.GenericSansSerif, 20, FontStyle.Bold);
             re.Plb(panel, "Rest_seat", "빈 자리 64좌석", 170, 40, 360, 15, Color.OrangeRed, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
-            re.Plb(panel, "Time", "현재 시간 12:15", 185, 40, 545, 15, Color.Orange, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
+            re.Plb(panel, "Time", "현재 시간 14:15", 185, 40, 545, 15, Color.Orange, Color.White, FontFamily.GenericSansSerif, 19, FontStyle.Bold);
 
             Controls.Add(panel);
             panel.Controls.Add(Charge_Btn);
